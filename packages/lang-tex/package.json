@@ -1,6 +1,6 @@
 {
-  "name": "lang-tex",
-  "version": "0.0.3",
+  "name": "rd-lang-tex",
+  "version": "0.0.1",
   "description": "TeX extension for CodeMirror 6",
   "keywords": [
     "tex",
