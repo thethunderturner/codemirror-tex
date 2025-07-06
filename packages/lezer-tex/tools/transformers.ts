@@ -23,5 +23,5 @@ export const codepointTransformer = (ctx: TransformationContext): Transformer<So
 
     return visitEachChild(n, v, ctx);
   };
-  return (s) => visitNode(s, v);
+  return (s: SourceFile) => visitNode(s, v) as SourceFile;
 };

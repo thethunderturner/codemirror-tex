@@ -3,7 +3,8 @@
   "compilerOptions": {
     "module": "commonjs",
     "rootDir": ".",
-    "allowJs": true
+    "allowJs": true,
+    "preserveConstEnums": false
   },
   "include": ["src", "tests", "third_party"]
 }

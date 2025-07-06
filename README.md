@@ -6,3 +6,10 @@ This repository is a monorepo for TeX-related CodeMirror 6 (CM6) packages:
 - [lezer-tex](https://github.com/mu-io/codemirror-tex/tree/main/packages/lezer-tex)
 
 Due to the instability of CM6s TypeScript API, these packages are slightly type-unsafe and are only recommended for those willing to understand CM6 further.
+
+# Cloning
+```bash
+git clone --recursive <repo-name>
+cd <repo-name>
+```
+The `--recursive` flag is to clone submodules.

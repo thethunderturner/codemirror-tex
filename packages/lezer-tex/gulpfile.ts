@@ -10,7 +10,7 @@ import { parse } from 'yaml';
 import rollupConfig from './rollup.config';
 import { lzwEncode } from './src/utils/lzw';
 import { Trie } from './src/utils/trie';
-import { buildParserFile } from './third_party/lezer-generator/src/build';
+import { buildParserFile } from './third_party/lezer-generator/src';
 
 const enum Term {
   FirstTerm = 35,

@@ -17,13 +17,19 @@ function build() {
 }
 task('build', build);
 
-function serve() {
+async function serve() {
   const devServerConfig = {
-    contentBase: join(__dirname, 'playground'),
+    static: {
+      directory: join(__dirname, 'playground'),
+    },
     compress: true,
     host: '127.0.0.1',
+    port: 9000,
   };
+
   const compiler = webpack(webpackConfig);
-  return new WebpackDevServer(compiler, devServerConfig).listen(9000, 'localhost');
+  const server = new WebpackDevServer(devServerConfig, compiler);
+
+  await server.start();
 }
 task('serve', serve);
