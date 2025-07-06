@@ -26,32 +26,26 @@
 		"release": "changeset publish"
 	},
 	"devDependencies": {
-		"@changesets/cli": "^2.14.1",
-		"@commitlint/cli": "^12.0.1",
-		"@commitlint/config-conventional": "^12.0.1",
 		"@antfu/eslint-config": "^1.0.0-beta.0",
-		"@typescript-eslint/eslint-plugin": "^4.18.0",
-		"@typescript-eslint/parser": "^4.18.0",
-		"@typescript-eslint/types": "^4.18.0",
-		"cspell": "^5.3.7",
-		"eslint": "^7.22.0",
-		"eslint-config-airbnb": "^18.2.1",
-		"eslint-config-airbnb-typescript": "^12.3.1",
-		"eslint-config-prettier": "^8.1.0",
-		"eslint-plugin-compat": "^3.9.0",
-		"eslint-plugin-cypress": "^2.11.2",
-		"eslint-plugin-eslint-comments": "^3.2.0",
-		"eslint-plugin-import": "^2.22.1",
-		"eslint-plugin-jest": "^24.3.1",
-		"eslint-plugin-padding": "^0.0.4",
-		"eslint-plugin-prettier": "^3.3.1",
-		"eslint-plugin-tsdoc": "^0.2.11",
+		"@changesets/cli": "^2.14.1",
+		"@commitlint/cli": "^19.8.1",
+		"@commitlint/config-conventional": "^12.0.1",
+		"@typescript-eslint/eslint-plugin": "^8.35.1",
+		"@typescript-eslint/parser": "^8.35.1",
+		"@typescript-eslint/types": "^8.35.1",
+		"cspell": "^9.1.0",
+		"eslint": "^8.57.0",
 		"husky": "=5",
-		"lerna": "^4.0.0",
+		"lerna": "^8.2.0",
 		"lint-staged": ">=10",
-		"prettier": "2.2.1"
+		"prettier": "3.6.0"
 	},
 	"lint-staged": {
 		"*.js": "eslint --cache --fix"
+	},
+	"dependencies": {
+		"@types/webpack-dev-server": "4.7.1",
+		"gulp-sourcemaps": "2.6.5",
+		"webpack-dev-server": "5.2.2"
 	}
 }

@@ -3,3 +3,4 @@ gen
 lib
 .rollup.cache
 yarn-error.log
+.idea
