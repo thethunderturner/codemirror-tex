@@ -1,27 +1,31 @@
-import { ContextTracker, Input, Stack } from 'lezer';
+import { ContextTracker} from '@lezer/lr';
 import Context, { BottomContext } from './context';
 import { GroupType } from './enums';
 import { Term } from './gen/terms';
-import * as directives from './plugins/directives';
 
 export class Tracker extends ContextTracker<Context | null> {
   constructor() {
     super({
       start: new BottomContext(),
-      hash(ctx: Context) {
-        return ctx.hash;
+      hash(ctx: Context | null) {
+        return ctx ? ctx.hash : 0;
       },
-      shift: (ctx: Context, term: number, input: Input, stack: Stack) => {
-        return this.handleTerm(ctx, term, input, stack);
+      shift: (ctx: Context | null, term: number) => {
+        return this.handleTerm(ctx, term);
       },
-      reduce: (ctx: Context, term: number, input: Input, stack: Stack) => {
-        return this.handleTerm(ctx, term, input, stack);
+      reduce: (ctx: Context | null, term: number) => {
+        return this.handleTerm(ctx, term);
       },
     });
   }
 
   // eslint-disable-next-line class-methods-use-this
-  private handleTerm(ctx: Context, term: number, input: Input, stack: Stack): Context {
+  private handleTerm(ctx: Context | null, term: number): Context | null {
+    // If context is null, create a new bottom context
+    if (!ctx) {
+      ctx = new BottomContext();
+    }
+
     switch (term) {
       case Term.left_brace: {
         return new Context(GroupType.Simple, ctx.depth + 1, ctx);
@@ -41,17 +45,25 @@ export class Tracker extends ContextTracker<Context | null> {
       case Term.right_double_math_shift: {
         return ctx.parent ?? ctx;
       }
-      case Term.directive: {
-        const instructions = input.read(stack.ruleStart + 2, stack.pos).trim();
-        for (const dir of Object.values(directives)) {
-          const updatedContext = dir.exec(instructions, ctx);
-          if (updatedContext !== null) {
-            ctx = updatedContext;
-            if (!dir.fallthrough) break;
-          }
-        }
-        break;
-      }
+      // read() bestaat niet in @lezer/lr
+
+      // case Term.directive: {
+      //   // For directives, we need to read the input differently
+      //   // The exact method depends on how your grammar is structured
+      //   // This is a placeholder - you'll need to adjust based on your grammar
+      //   const start = stack.pos;
+      //   const end = input.next; // or however you determine the end position
+      //   const instructions = input.chunk(start, end).trim();
+      //
+      //   for (const dir of Object.values(directives)) {
+      //     const updatedContext = dir.exec(instructions, ctx);
+      //     if (updatedContext !== null) {
+      //       ctx = updatedContext;
+      //       if (!dir.fallthrough) break;
+      //     }
+      //   }
+      //   break;
+      // }
     }
     return ctx;
   }

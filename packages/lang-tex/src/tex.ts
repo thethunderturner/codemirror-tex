@@ -1,14 +1,14 @@
-import { styleTags, tags as t } from '@codemirror/highlight';
+import { styleTags, tags as t } from '@lezer/highlight'
 import {
   flatIndent,
   foldInside,
   foldNodeProp,
   indentNodeProp,
   LanguageSupport,
-  LezerLanguage,
+  LRLanguage,
   TreeIndentContext,
 } from '@codemirror/language';
-import parser from 'lezer-tex';
+import parser from '../../lezer-tex';
 
 function simpleIndent(units = 1) {
   return (context: TreeIndentContext) => {
@@ -21,7 +21,7 @@ function simpleIndent(units = 1) {
  * parser](https://github.com/mu-io/codemirror-tex/tree/main/packages/lezer-tex), extended with
  * language-specific information.
  */
-export const texLanguage = LezerLanguage.define({
+export const texLanguage = LRLanguage.define({
   parser: parser.configure({
     props: [
       indentNodeProp.add({

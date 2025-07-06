@@ -1,4 +1,5 @@
 export const enum CatCode {
+  Invalid = -1,
   Escape = 0,
   LeftBrace,
   RightBrace,

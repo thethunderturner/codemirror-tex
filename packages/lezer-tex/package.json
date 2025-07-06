@@ -68,8 +68,8 @@
     "@commitlint/cli": "19.8.1",
     "@types/webpack-dev-server": "4.7.1",
     "gulp-sourcemaps": "2.6.5",
-    "lezer": "^0.13.4",
-    "lz-string": "^1.4.4",
+    "@lezer/generator": "^1.7.0",
+    "@lezer/lr": "^1.4.0",
     "webpack-dev-server": "5.2.2"
   }
 }
