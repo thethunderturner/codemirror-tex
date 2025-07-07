@@ -46,6 +46,7 @@
 	"dependencies": {
 		"@types/webpack-dev-server": "4.7.1",
 		"gulp-sourcemaps": "2.6.5",
+		"lezer": "^0.13.5",
 		"webpack-dev-server": "5.2.2"
 	}
 }
