@@ -23,7 +23,8 @@
 		"lint:ts": "lerna run lint:ts",
 		"test": "lerna run test",
 		"prerelease": "lerna run build",
-		"release": "changeset publish"
+		"release": "changeset publish",
+		"pack": "npm pack ./packages/lang-tex --pack-destination=./packages/lang-tex && npm pack ./packages/lezer-tex --pack-destination=./packages/lezer-tex"
 	},
 	"devDependencies": {
 		"@antfu/eslint-config": "^1.0.0-beta.0",
