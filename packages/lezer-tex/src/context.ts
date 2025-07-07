@@ -1,6 +1,6 @@
 import { CatCode, GroupType } from './enums';
 import commands from './gen/commands';
-import { Term } from './gen/terms';
+import * as Term from './gen/terms';
 import { lzwDecode } from './utils/lzw';
 import { Trie } from './utils/trie';
 

@@ -4,7 +4,7 @@
 import { ExternalTokenizer, InputStream } from '@lezer/lr';
 import Context from './context';
 import { CatCode, GroupType } from './enums';
-import { Term } from './gen/terms';
+import * as Term from './gen/terms';
 import isHex from './utils/is-hex';
 
 class State {

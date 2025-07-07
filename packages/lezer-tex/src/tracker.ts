@@ -1,7 +1,7 @@
 import { ContextTracker} from '@lezer/lr';
 import Context, { BottomContext } from './context';
 import { GroupType } from './enums';
-import { Term } from './gen/terms';
+import * as Term from './gen/terms';
 
 export class Tracker extends ContextTracker<Context | null> {
   constructor() {

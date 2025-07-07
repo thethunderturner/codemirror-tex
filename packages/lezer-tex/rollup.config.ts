@@ -5,9 +5,22 @@ import { RollupOptions } from 'rollup';
 import { terser } from 'rollup-plugin-terser';
 import { codepointTransformer } from './tools/transformers';
 
+const external = [
+  '@codemirror/state',
+  '@codemirror/view',
+  '@codemirror/language',
+  '@codemirror/commands',
+  '@codemirror/search',
+  '@codemirror/lint',
+  '@codemirror/autocomplete',
+  '@lezer/highlight',
+  '@lezer/lr',
+  'codemirror'
+];
+
 export default {
   input: 'src/index.ts',
-  external: ['lezer'],
+  external,
   plugins: [
     nodeResolve(),
     typescript({

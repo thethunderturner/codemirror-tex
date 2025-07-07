@@ -1,4 +1,4 @@
-import { dest, src, task } from 'gulp';
+import { dest, src, task, series } from 'gulp';
 import sourcemaps from 'gulp-sourcemaps';
 import { join } from 'path';
 import webpack from 'webpack';
@@ -15,7 +15,13 @@ function build() {
     .pipe(sourcemaps.write('.', { includeContent: false, sourceRoot: './' }))
     .pipe(dest('lib'));
 }
-task('build', build);
+
+// NEW: Task so gulp can copy the ./mathjax.snippet.json file
+function copyJson() {
+  return src('src/**/*.json').pipe(dest('lib'));
+}
+
+task('build', series(build, copyJson));
 
 async function serve() {
   const devServerConfig = {
