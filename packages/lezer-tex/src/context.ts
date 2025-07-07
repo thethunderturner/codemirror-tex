@@ -22,7 +22,7 @@ export default class Context {
 
   public eqtb: {
     catcode: number[];
-    commands: Trie<[code: number, dialect: Term]>;
+    commands: Trie<[code: number, dialect: number]>;
   } = { catcode: [], commands: new Trie([-1, 0]) };
 
   constructor(groupType: GroupType);
