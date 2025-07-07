@@ -16,19 +16,19 @@
   "author": "mu.io <dev@mathematic.io>",
   "homepage": "https://github.com/mu-io/codemirror-tex",
   "license": "GPL-3.0-or-later",
-  "main": "./lib/index.cjs",
-  "module": "./lib/index.js",
-  "types": "./lib/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "type": "module",
   "exports": {
-    "import": "./lib/index.js",
-    "require": "./lib/index.cjs"
+    "import": "./dist/index.js",
+    "require": "./dist/index.cjs"
   },
   "files": [
-    "lib"
+    "dist"
   ],
   "directories": {
-    "lib": "lib",
+    "lib": "dist",
     "test": "tests"
   },
   "publishConfig": {

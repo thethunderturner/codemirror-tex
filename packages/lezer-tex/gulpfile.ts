@@ -243,14 +243,14 @@ task('docs', series('docs-readme'));
 async function build() {
   const bundle = await rollup(rollupConfig);
   await bundle.write({
-    dir: 'lib',
+    dir: 'dist',
     format: 'es',
     name: 'lezer-tex',
     exports: 'named',
     sourcemap: true,
   });
   await bundle.write({
-    file: 'lib/index.cjs',
+    file: 'dist/index.cjs',
     format: 'cjs',
     exports: 'named',
     name: 'lezer-tex',

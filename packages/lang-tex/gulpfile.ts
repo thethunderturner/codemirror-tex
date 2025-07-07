@@ -13,12 +13,12 @@ function build() {
     .pipe(sourcemaps.init())
     .pipe(tsProject())
     .pipe(sourcemaps.write('.', { includeContent: false, sourceRoot: './' }))
-    .pipe(dest('lib'));
+    .pipe(dest('dist'));
 }
 
 // NEW: Task so gulp can copy the ./mathjax.snippet.json file
 function copyJson() {
-  return src('src/**/*.json').pipe(dest('lib'));
+  return src('src/**/*.json').pipe(dest('dist'));
 }
 
 task('build', series(build, copyJson));

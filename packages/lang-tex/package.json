@@ -14,13 +14,15 @@
   "author": "mu.io <dev@mathematic.io>",
   "homepage": "https://github.com/mu-io/codemirror-tex",
   "license": "GPL-3.0-or-later",
-  "main": "lib/index.js",
-  "type": "module",
-  "directories": {
-    "lib": "lib"
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "import": "./dist/index.js",
+    "require": "./dist/index.cjs"
   },
   "files": [
-    "lib"
+    "dist"
   ],
   "publishConfig": {
     "access": "public"
